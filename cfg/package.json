@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "wpdev": "webpack --mode development",
+    "wpprod": "webpack --mode production",
+    
+    "wpwatch": "webpack --watch"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.0",
+    "jquery": "^3.3.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}

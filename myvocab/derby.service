@@ -1,0 +1,49 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          derby
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: derby: chmod 755 /etc/init.d/derby
+### END INIT INFO
+
+
+DB_DIR=/opt/derby
+
+start() {
+    echo -n "Derby Starting: "
+    sudo $DB_DIR/bin/startNetworkServer &
+}
+
+stop() {
+    echo -n "Derby Shutting down: "
+    sudo $DB_DIR/bin/stopNetworkServer &
+}
+
+status() {
+    echo "Derby has status: "
+    sudo $DB_DIR/bin/NetworkServerControl ping &
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        sleep 3
+        start
+        ;;
+    status)
+        status
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+esac
+
+exit $?

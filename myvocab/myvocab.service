@@ -1,0 +1,16 @@
+[Unit]
+Description=MyVocab
+After=syslog.target
+
+[Service]
+WorkingDirectory=/opt/apps/myvocab
+SyslogIdentifier=myvocab
+ExecStart=/usr/bin/java -jar -DjpaProvider=eclipselink -DservletContainer=catalina -DlogPath="/opt/apps/myvocab/logs" -DdeployEnv=Production payara.jar --deploy myvocab.war --logtofile /opt/apps/myvocab/payara.log --maxhttpthreads 25
+SuccessExitStatus=143
+User=myvocab
+Type=simple
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
