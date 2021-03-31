@@ -1,0 +1,5 @@
+com.h2database:h2
+
+org.hibernate: hibernate-entitymanager
+
+javax: javaee-api (8)
