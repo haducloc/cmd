@@ -1,0 +1,12 @@
+# JWT RSA Key
+
+## Private Key
+openssl genrsa -out baseKey.pem
+
+## Private Key PKCS8
+openssl pkcs8 -topk8 -inform PEM -in baseKey.pem -out privateKey.pem -nocrypt
+
+openssl rsa -in privateKey.pem -out converted_privateKey.pem (Optional)
+
+## Public Key
+openssl rsa -in baseKey.pem -pubout -outform PEM -out publicKey.pem
